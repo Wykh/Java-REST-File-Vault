@@ -15,5 +15,5 @@ public class FileVaultConstants {
     public static final double BYTES_TO_MB_MULTIPLIER = 1.0 / 1024.0 / 1024.0;
 
     public static final String DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss";
-    public static String STORAGE_LOCATION = "upload-dir";
+    public static final String STORAGE_LOCATION = "upload-dir";
 }

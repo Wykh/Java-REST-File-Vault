@@ -1,4 +1,4 @@
-package com.example.filevault.controller;
+package com.example.filevault.exception;
 
 import com.example.filevault.exception.*;
 import org.springframework.http.ResponseEntity;

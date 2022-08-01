@@ -6,18 +6,15 @@ import com.example.filevault.entity.FileEntity;
 import com.example.filevault.exception.BadFileTypeException;
 import com.example.filevault.exception.EmptyFileNameException;
 import com.example.filevault.exception.TooLargeFileSizeException;
-import com.example.filevault.repository.DataBaseFileRepository;
+import com.example.filevault.repository.FileRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockMultipartFile;
 
-import java.io.IOException;
-import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
 
@@ -27,13 +24,13 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-class DataBaseFileServiceTest {
+class FileServiceImplTest {
 
     @Mock
-    DataBaseFileRepository fileRepository;
+    FileRepository fileRepository;
 
     @InjectMocks
-    DataBaseFileService fileService;
+    FileServiceImpl fileService;
 
     @Test
     void upload_Success_shouldUploadFile_whenAllIsOk()  {
@@ -147,7 +144,7 @@ class DataBaseFileServiceTest {
         when(fileRepository.save(any())).thenReturn(afterUpdate);
 
         // act
-        FileDto actualFileDto = fileService.update(idSample, nameAfter, commentAfter);
+        FileDto actualFileDto = fileService.update(idSample, nameAfter, commentAfter, false);
 
         // assert
         verify(fileRepository).save(afterUpdate);

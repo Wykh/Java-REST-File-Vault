@@ -1,7 +1,7 @@
 package com.example.filevault.service;
 
 import com.example.filevault.dto.FileBytesAndNameById;
-import com.example.filevault.controller.FilesFilterParams;
+import com.example.filevault.specification.FilesFilterParams;
 import com.example.filevault.dto.FileDto;
 import com.example.filevault.dto.FileNameById;
 import org.springframework.web.multipart.MultipartFile;
@@ -16,7 +16,7 @@ public interface FileService {
     FileDto getDTOById(UUID id);
     FileBytesAndNameById getBytesAndNameById(UUID id);
     FileBytesAndNameById getZipBytesByIds(List<UUID> id);
-    FileDto update(UUID id, String newFileName, String newComment);
+    FileDto update(UUID id, String newFileName, String newComment, Boolean isPublic);
     FileDto delete(UUID id);
 
 }
